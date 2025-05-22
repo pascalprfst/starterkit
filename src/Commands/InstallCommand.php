@@ -10,23 +10,19 @@ class InstallCommand extends Command
     protected $signature = 'budi:install';
     protected $description = 'Installiert Breeze und das Budi Starter Kit';
 
-    public function handle() : void
+    public function handle(): void
     {
         $this->info('Installiere Laravel Breeze...');
         $this->call('breeze:install');
 
         $this->deleteUnusedBreezeComponents();
 
-        $this->info('Veröffentliche Budi Starter Kit Views...');
-        $this->call('vendor:publish', [
-            '--tag' => 'budi-starterkit-views',
-            '--force' => true
-        ]);
+        $this->publishResources();
 
         $this->info('Budi Starter Kit installiert.');
     }
 
-    private function deleteUnusedBreezeComponents() : void
+    private function deleteUnusedBreezeComponents(): void
     {
         $components = [
             resource_path('views/components/primary-button.blade.php'),
@@ -41,5 +37,28 @@ class InstallCommand extends Command
                 File::delete($component);
             }
         }
+    }
+
+    private function publishResources(): void
+    {
+        $this->call('vendor:publish', [
+            '--tag' => 'budi-starterkit-views',
+            '--force' => true,
+        ]);
+
+        $this->call('vendor:publish', [
+            '--tag' => 'budi-starterkit-scripts',
+            '--force' => true,
+        ]);
+
+        $this->call('vendor:publish', [
+            '--tag' => 'budi-starterkit-code',
+            '--force' => true,
+        ]);
+
+        $this->call('vendor:publish', [
+            '--tag' => 'budi-starterkit-routes',
+            '--force' => true,
+        ]);
     }
 }
