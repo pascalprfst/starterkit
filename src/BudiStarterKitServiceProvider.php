@@ -19,7 +19,7 @@ class BudiStarterKitServiceProvider extends ServiceProvider
             ], 'budi-starterkit-scripts');
 
             $this->publishes([
-                __DIR__ . '/../stubs/app/Http/Controllers' => app_path('Http/Controllers'),
+                __DIR__ . '/../stubs/app' => app_path(),
             ], 'budi-starterkit-code');
 
             $this->publishes([
