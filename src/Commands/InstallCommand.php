@@ -1,14 +1,14 @@
 <?php
 
-namespace Budi\BudiStarterkit\Commands;
+namespace PascalDev\SaaSStarterkit\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
 class InstallCommand extends Command
 {
-    protected $signature = 'budi:install';
-    protected $description = 'Installiert Breeze und das Budi Starter Kit';
+    protected $signature = 'pascaldev:install';
+    protected $description = 'Installiert Breeze und das SaaS-Starter Kit';
 
     public function handle(): void
     {
@@ -19,7 +19,7 @@ class InstallCommand extends Command
 
         $this->publishResources();
 
-        $this->info('Budi Starter Kit installiert.');
+        $this->info('SaaS-Starter Kit installiert.');
     }
 
     private function deleteUnusedBreezeComponents(): void
@@ -42,22 +42,22 @@ class InstallCommand extends Command
     private function publishResources(): void
     {
         $this->call('vendor:publish', [
-            '--tag' => 'budi-starterkit-views',
+            '--tag' => 'pascaldev-starterkit-views',
             '--force' => true,
         ]);
 
         $this->call('vendor:publish', [
-            '--tag' => 'budi-starterkit-scripts',
+            '--tag' => 'pascaldev-starterkit-scripts',
             '--force' => true,
         ]);
 
         $this->call('vendor:publish', [
-            '--tag' => 'budi-starterkit-code',
+            '--tag' => 'pascaldev-starterkit-code',
             '--force' => true,
         ]);
 
         $this->call('vendor:publish', [
-            '--tag' => 'budi-starterkit-routes',
+            '--tag' => 'pascaldev-starterkit-routes',
             '--force' => true,
         ]);
     }

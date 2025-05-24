@@ -1,30 +1,30 @@
 <?php
 
-namespace Budi\BudiStarterkit;
+namespace PascalDev\SaaSStarterkit;
 
-use Budi\BudiStarterkit\Commands\InstallCommand;
 use Illuminate\Support\ServiceProvider;
+use PascalDev\SaaSStarterkit\Commands\InstallCommand;
 
-class BudiStarterKitServiceProvider extends ServiceProvider
+class SaaSStarterKitServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../stubs/resources/views' => resource_path('views'),
-            ], 'budi-starterkit-views');
+            ], 'pascaldev-starterkit-views');
 
             $this->publishes([
                 __DIR__ . '/../stubs/resources/js' => resource_path('js'),
-            ], 'budi-starterkit-scripts');
+            ], 'pascaldev-starterkit-scripts');
 
             $this->publishes([
                 __DIR__ . '/../stubs/app' => app_path(),
-            ], 'budi-starterkit-code');
+            ], 'pascaldev-starterkit-code');
 
             $this->publishes([
                 __DIR__ . '/../stubs/routes/web.php' => base_path('routes/web.php'),
-            ], 'budi-starterkit-routes');
+            ], 'pascaldev-starterkit-routes');
 
             $this->commands([
                 InstallCommand::class,
