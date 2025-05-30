@@ -62,7 +62,7 @@ class InstallCommand extends Command
         ]);
 
         $this->call('vendor:publish', [
-            '--tag' => 'pascaldev-starterkit-databse',
+            '--tag' => 'pascaldev-starterkit-database',
             '--force' => true,
         ]);
     }
