@@ -26,6 +26,10 @@ class SaaSStarterKitServiceProvider extends ServiceProvider
                 __DIR__ . '/../stubs/routes/web.php' => base_path('routes/web.php'),
             ], 'pascaldev-starterkit-routes');
 
+            $this->publishes([
+                __DIR__ . '/../stubs/database' => app_path('database'),
+            ], 'pascaldev-starterkit-database');
+
             $this->commands([
                 InstallCommand::class,
             ]);

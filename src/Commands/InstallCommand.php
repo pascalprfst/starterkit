@@ -60,5 +60,10 @@ class InstallCommand extends Command
             '--tag' => 'pascaldev-starterkit-routes',
             '--force' => true,
         ]);
+
+        $this->call('vendor:publish', [
+            '--tag' => 'pascaldev-starterkit-databse',
+            '--force' => true,
+        ]);
     }
 }
