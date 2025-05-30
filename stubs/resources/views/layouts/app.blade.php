@@ -21,7 +21,7 @@
     <x-sidebar/>
     <div class="w-full">
         <x-header/>
-        <main class="py-6 px-8 overflow-y-auto  h-[calc(100vh-48px)]">
+        <main class="px-8 overflow-y-auto h-[calc(100vh-48px)]">
             {{ $slot }}
         </main>
     </div>
